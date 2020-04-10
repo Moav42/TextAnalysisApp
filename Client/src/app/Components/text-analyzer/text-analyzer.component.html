@@ -1,0 +1,29 @@
+<div class="container"> 
+    <h1>Text Analysis Web Application</h1>
+    <section >
+        <div class="row">
+            <textarea cols="100" rows = "10" [(ngModel)]="inputText" placeholder="Enter text">
+            </textarea>
+        </div>
+
+        <div class="row">
+            <button  (click)="submitText(inputText)">
+                Analyzing
+            </button>
+        </div>
+    </section>  
+
+    <section *ngIf = "metricsModels.length > 0">  
+        <ul>
+            <p>List of metrics:</p>
+            <li  *ngFor = "let metrics of metricsModels">
+                {{metrics.metricsName}}:   {{metrics.metricsValue}}
+            </li>
+        </ul>
+
+        <div class="error alert-danger"*ngIf="isError">
+            {{this.errorText}}
+        </div>
+    </section>
+      
+</div>
